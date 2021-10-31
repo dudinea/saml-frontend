@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
   template: `
     <div class="header">
-      <div class="link"><a ><!--(click)="onChangePage(1)"-->Login</a></div>
-      <div class="link"><a ><!--(click)="onChangePage(2)"-->Logout</a></div>
+      <div class="link"><a (click)="navigateToLogin()">Login</a></div>
+      <div class="link"><a (click)="navigateToLogout()">Logout</a></div>
     </div>
   `,
   styles: [
@@ -27,9 +28,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
 
   ngOnInit(): void {
   }
 
+  navigateToLogin() {
+    this.router.navigate(['login']);
+  }
+
+  navigateToLogout() {
+    this.router.navigate((['logout']));
+  }
+
+  navigateToHome() {
+    this.router.navigate(['']);
+  }
 }

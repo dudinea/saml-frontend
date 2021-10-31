@@ -11,7 +11,8 @@ import { Component } from '@angular/core';
         Welcome to {{title}}!
       </h1>
       <span style="display: block">{{ title }} app is running!</span>
-      
+      <router-outlet>
+      </router-outlet>  
     </div>
    
     
