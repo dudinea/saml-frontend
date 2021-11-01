@@ -15,6 +15,6 @@ export class AuthService {
   }
   //  IUser
   public getUserName(): Observable<Object> {
-    return this.http.get<Object>(Endpoints.USER_INFO_API);
+    return this.http.get<Object>(Endpoints.USER_INFO_API, {withCredentials: true});
   }
 }

@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private appService: AppService, private router: Router) {}
 
   canActivate(): Observable<boolean> {
-      console.log("getUserInfo: ",this.authService.getUserName());
+      //console.log("getUserInfo: ",this.authService.getUserName());
       //this.updateWelcomeMessage();    
       //return of(true);
       //    /}

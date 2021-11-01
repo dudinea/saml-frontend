@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
     <div class="header">
       <div class="link"><a (click)="navigateToLogin()">Login</a></div>
       <div class="link"><a (click)="navigateToLogout()">Logout</a></div>
+      <div class="link"><a (click)="navigateToContent()">Protected Content</a></div>
     </div>
   `,
   styles: [
@@ -42,7 +43,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigate((['logout']));
   }
 
-  navigateToHome() {
-    this.router.navigate(['']);
+  navigateToContent() {
+    this.router.navigate((['content']));
   }
+
+  //navigateToHome() {
+  //  this.router.navigate(['']);
+  //}
 }
