@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { OnInit} from '@angular/core';
+import {AppService} from "./app.service";
 
 @Component({
   selector: 'app-root',
@@ -19,7 +21,13 @@ import { Component } from '@angular/core';
   `,
   styles: []
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'SAML example frontend';
-  username = 'Guest';
+  username = '???';
+
+  constructor(private appService: AppService) {}
+
+  ngOnInit() {
+    this.appService.currentMessage.subscribe(message => this.username = message)
+  }
 }
