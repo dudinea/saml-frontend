@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {CanActivate, Router} from '@angular/router';
 import {Observable, of } from 'rxjs';
-import {map } from 'rxjs/operators';
+import {catchError, map } from 'rxjs/operators';
 import {AuthService} from './auth.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {AppService} from "./app.service";
@@ -12,35 +12,29 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private appService: AppService, private router: Router) {}
 
   canActivate(): Observable<boolean> {
-      //console.log("getUserInfo: ",this.authService.getUserName());
-      //this.updateWelcomeMessage();    
-      //return of(true);
-      //    /}
     return this.authService.getUserName().pipe(  map(
         userInfo  => {
-            console.log("userName", userInfo);
-            return true;
-           // /* if (user.role === 'ROLE_ADMIN') {
-           //     this.updateWelcomeMessage();
-           //     return true;
-            //} else {
-            //    this.router.navigate(['/login']);
-            //    return false;
-            //
-    }));
-    /*},
-    error => AuthGuard.handleError(error));*/
+            console.log('userName', userInfo);
+            if (userInfo['userName'] != null) {
+                this.updateWelcomeMessage();
+                return true;
+            } else {
+                 return false;
+            }
+    }), catchError(this.handleError));
+    //error => AuthGuard.handleError(error));*/
   }
 
   private updateWelcomeMessage() {
     this.appService.getWelcomeMessage().subscribe(
       welcomeMessage => {
-        this.appService.updateMessage(welcomeMessage.message);
+        console.log("welcomeMessage", welcomeMessage)
+        this.appService.updateMessage(welcomeMessage.name);
       }
     );
   }
 
-  static handleError(err: HttpErrorResponse) {
+  handleError(err: HttpErrorResponse) {
     // in a real world root, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console
     console.error('Error retrieving User');

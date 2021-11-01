@@ -16,6 +16,10 @@ export class AppService {
   }
 
   public getWelcomeMessage(): Observable<any> {
-    return this.http.get(Endpoints.WELCOME_API);
+    return this.http.get(Endpoints.WELCOME_API, {withCredentials : true});
+  }
+
+  public getUserDetails(): Observable<any> {
+    return this.http.get(Endpoints.USER_INFO_API, {withCredentials : true});
   }
 }

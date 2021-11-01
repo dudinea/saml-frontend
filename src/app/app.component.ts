@@ -9,7 +9,7 @@ import {AppService} from "./app.service";
     <app-header> <!--(pageRequested)="onPageChange($event)"--></app-header>
     <div style="text-align:center" class="content">
       <h1>
-        Hello, {{username}}
+        Hello, {{username}}<br/>
         Welcome to {{title}}!
       </h1>
       <span style="display: block">{{ title }} app is running!</span>
