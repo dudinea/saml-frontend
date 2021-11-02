@@ -4,10 +4,10 @@ import {AuthService} from '../auth.service';
 @Component({
   selector: 'app-login',
   template: `
-    <button mat-button
+    <button login-button
               type="button"
-              (click)="login()" class="login-btn login-btn-text">
-      <span class="login-btn--label">Press to Log-in with SAML</span>
+              (click)="login()">
+      Press to Log-in with SAML
     </button>
   `,
   styles: [

@@ -17,4 +17,10 @@ export class AuthService {
   public getUserName(): Observable<Object> {
     return this.http.get<Object>(Endpoints.USER_INFO_API, {withCredentials: true});
   }
+
+  public logout() : Observable<any> {
+    return this.http.post(Endpoints.LOGOUT_API, {}, {withCredentials : true})
+      //this.app.authenticated = false;
+      //this.router.navigateByUrl('/login');
+  }
 }

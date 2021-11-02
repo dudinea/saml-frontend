@@ -3,4 +3,5 @@ export class Endpoints {
   public static LOGIN_API     = Endpoints.BACKEND_URL + '/saml2/authenticate/okta-saml';
   public static USER_INFO_API = Endpoints.BACKEND_URL + '/getUserDetails';
   public static WELCOME_API   = Endpoints.BACKEND_URL + '/getUserName';
+  public static LOGOUT_API   = Endpoints.BACKEND_URL + '/doLogout';
 }
