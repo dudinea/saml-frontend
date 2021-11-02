@@ -6,7 +6,7 @@ import {BehaviorSubject} from "rxjs";
 
 @Injectable()
 export class AppService {
-  private messageSource: BehaviorSubject<string> = new BehaviorSubject("You are not logged in.");
+  private messageSource: BehaviorSubject<string> = new BehaviorSubject("Guest");
   currentMessage = this.messageSource.asObservable();
 
   constructor(private http: HttpClient) {}
