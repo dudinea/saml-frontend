@@ -8,7 +8,6 @@ import {Observable, of} from 'rxjs';
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-  //constructor() { }
 
   static login() {
     window.location.href = Endpoints.LOGIN_API;
@@ -20,7 +19,5 @@ export class AuthService {
 
   public logout() : Observable<any> {
     return this.http.post(Endpoints.LOGOUT_API, {}, {withCredentials : true})
-      //this.app.authenticated = false;
-      //this.router.navigateByUrl('/login');
   }
 }
